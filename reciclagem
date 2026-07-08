@@ -1,0 +1,98 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='.', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bot {bot.user} está pronto e online!')
+
+@bot.command()
+async def reciclagem(ctx):
+    await ctx.send(
+        "**Qual material você deseja reciclar?**\n\n"
+        "`.papel`\n"
+        "`.plastico`\n"
+        "`.vidro`\n"
+        "`.metal`\n"
+        "`.organico`\n"
+        "`.eletronico`"
+    )
+
+@bot.command()
+async def papel(ctx):
+    await ctx.send(
+        "Formas de reciclar papel:\n"
+        "Separar o papel de outros materiais e enviar para a coleta seletiva.\n"
+        "Reutilizar folhas como rascunho ou artesanato.\n"
+        "Fazer papel reciclado em casa.\n"
+        "Transformar papéis em caixas e enfeites.\n"
+        "Levar para cooperativas de reciclagem."
+    )
+
+    await ctx.send(
+        "💡 Ideias para reutilizar papel:\n"
+        "📝 Blocos de anotações\n"
+        "📚 Capas de cadernos\n"
+        "🎨 Desenhos\n"
+        "📦 Caixas organizadoras\n"
+        "🖊️ Porta-lápis\n"
+        "💌 Cartões\n"
+        "🌸 Enfeites\n"
+        "🧩 Brinquedos\n"
+        "🪴 Vasos para plantas\n"
+        "🛍️ Sacolas de papel"
+    )
+@bot.command()
+async def organico(ctx):
+    await ctx.send(
+        " Formas de reciclar lixo orgânico:\n"
+        "Fazer compostagem para produzir adubo natural.\n"
+        "Separar restos de alimentos dos demais resíduos.\n"
+        "Utilizar cascas de frutas e legumes na compostagem.\n"
+        "Transformar resíduos orgânicos em fertilizante.\n"
+        "Destinar o lixo orgânico para coleta específica, quando disponível."
+    )
+
+    await ctx.send(
+        "💡 Coisas que podem ser feitas com lixo orgânico:\n"
+        "🌱 Adubo para plantas\n"
+        "🪴 Húmus de minhoca\n"
+        "🌿 Fertilizante natural\n"
+        "🍃 Compostagem para hortas\n"
+        "🌼 Nutrientes para jardins\n\n"
+        "Além de reduzir a quantidade de lixo, o reaproveitamento de resíduos orgânicos melhora a qualidade do solo e ajuda o meio ambiente. 🌍"
+    )
+
+@bot.command()
+async def metal(ctx):
+    await ctx.send(
+        "♻️ Formas de reciclar metal:\n"
+        "• Separar latas, alumínio, aço e outros metais dos demais resíduos.\n"
+        "• Lavar as embalagens antes da reciclagem.\n"
+        "• Levar os metais para a coleta seletiva ou cooperativas de reciclagem.\n"
+        "• Reaproveitar sucatas para novos produtos.\n"
+        "• Destinar corretamente objetos metálicos que não podem ser reutilizados."
+    )
+
+    await ctx.send(
+        "💡 Coisas que podem ser feitas com metal reciclado:\n"
+        "🥫 Novas latas de alumínio\n"
+        "🚲 Peças para bicicletas\n"
+        "🚗 Peças para automóveis\n"
+        "🏗️ Materiais para construção\n"
+        "🛠️ Ferramentas e utensílios\n\n"
+        "Além de economizar recursos naturais, a reciclagem do metal reduz a extração de minérios e ajuda a preservar o meio ambiente. 🌍"
+    )
+
+@bot.command()
+async def eletronico(ctx):
+    await ctx.send(
+        "♻️ Formas de reciclar lixo eletrônico:\n"
+        "• Separar celulares, computadores, cabos e baterias dos demais resíduos.\n"
+        "• Levar os eletrônicos a pontos de coleta específicos.\n"
+        "• Doar aparelhos que ainda funcionam.\n"
+        "• Encaminhar equipamentos para empresas de reciclagem.\n"
+        "• Nunca descartar eletrônicos no lixo comum."
+    )
