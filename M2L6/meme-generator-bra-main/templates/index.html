@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Gerador de memes</title>
+</head>
+<body>
+  <header class="header">
+    <img src="../static/img/logo.svg" alt="logo" width="50" height="50">
+    <ul class="main-list">
+        <li class="list__item">
+          <a href="">Página inicial</a>
+        </li>
+        <li class="list__item">
+          <a href="">Coleção</a>
+        </li>
+        <li class="list__item">
+          <a href="">Feedback</a>
+        </li>
+    </ul>
+  </header>
+  <main>
+    {% block content %}
+    <div class="form-block">
+      <h1>Gere seu meme!</h1>
+      <form method="POST" action="{{ url_for('index') }}">
+        <ul class="form-list">
+          <li class="form-list_item">
+            <label for="image-selector">Selecione um meme</label>
+            <select name="image-selector" id="image-selector">
+              <option value="logo.svg" {% if selected_image == 'logo.svg' %}selected{% endif %}>Selecione um meme</option>
+              <option value="meme_1.jpg" {% if selected_image == 'meme_1.jpg' %}selected{% endif %}>Garota Desastre</option>
+              <option value="meme_2.jpg" {% if selected_image == 'meme_2.jpg' %}selected{% endif %}>Dois botões</option>
+              <option value="meme_3.jpg" {% if selected_image == 'meme_3.jpg' %}selected{% endif %}>Brincando com Rosa</option>
+              <option value="meme_4.jpg" {% if selected_image == 'meme_4.jpg' %}selected{% endif %}>Resenha</option>
+              <option value="meme_5.jpg" {% if selected_image == 'meme_5.jpg' %}selected{% endif %}>Faz Favor</option>
+              <option value="meme_6.jpg" {% if selected_image == 'meme_6.jpg' %}selected{% endif %}>Que Fofo</option>
+              <option value="meme_7.jpg" {% if selected_image == 'meme_7.jpg' %}selected{% endif %}>Barney</option>
+              <option value="meme_8.jpg" {% if selected_image == 'meme_8.jpg' %}selected{% endif %}>Perdão</option> 
+              <option value="meme_9.jpg" {% if selected_image == 'meme_9.jpg' %}selected{% endif %}>Sinistro</option>
+              <option value="meme_10.jpg" {% if selected_image == 'meme_10.jpg' %}selected{% endif %}>Choro de puta</option>
+              <option value="meme_11.jpg" {% if selected_image == 'meme_11.jpg' %}selected{% endif %}>Vai Tomando</option>
+              <option value="meme_12.jpg" {% if selected_image == 'meme_12.jpg' %}selected{% endif %}>Alfa</option>
+              <option value="meme_13.jpg" {% if selected_image == 'meme_13.jpg' %}selected{% endif %}>Enaldinho</option>
+              <option value="meme_14.jpg" {% if selected_image == 'meme_14.jpg' %}selected{% endif %}>Meme</option>
+
+              <!-- Tarefa #1. Adicione novos memes aqui -->
+            </select>
+          </li>
+          <li class="form-list_item">
+            <label for="textTop">Digite o texto superior aqui</label>
+            <input class="input_text" type="text" placeholder="Texto superior" name="textTop">
+          </li>
+          <li class="form-list_item">
+            <label for="textBottom">Digite o texto inferior aqui</label>
+            <input class="input_text" type="text" placeholder="Texto inferior" name="textBottom">
+          </li>
+          <li class="form-list_item">
+            <label for="color-selector">Defina a cor do texto</label>
+            <select name="color-selector" id="color-selector">
+              <option value="white" {% if selected_color == 'white' %}selected{% endif %}>Branco</option>
+              <option value="black" {% if selected_color == 'black' %}selected{% endif %}>Preto</option>
+              <option value="red" {% if selected_color == 'red' %}selected{% endif %}>Vermelho</option>
+              <option value="blue" {% if selected_color == 'blue' %}selected{% endif %}>Azul</option>
+              <option value="green" {% if selected_color == 'green' %}selected{% endif %}>Verde</option>
+              <option value="pink" {% if selected_color == 'pink' %}selected{% endif %}>Rosa</option>
+              <option value="purple" {% if selected_color == 'purple' %}selected{% endif %}>Roxo</option>
+              <option value="orange" {% if selected_color == 'orange' %}selected{% endif %}>Laranja</option>
+              <option value="yellow" {% if selected_color == 'yellow' %}selected{% endif %}>Amarelo</option>
+              <!-- Tarefa #1. Adicione novas cores aqui -->
+            </select>
+          </li>
+          <li class="form-list_item">
+            <label for="textTop_y">Digite a posição do texto superior no eixo Y</label>
+            <input class="input_text" id="textTop_y" type="text" placeholder="Texto superior" name="textTop_y">
+          </li>
+          <li class="form-list_item">
+            <label for="textBottom_y">Digite a posição do texto inferior no eixo Y</label>
+            <input class="input_text" id="textBottom_y" type="text" placeholder="Texto inferior" name="textBottom_y">
+          </li>
+          <button type="submit">Gerar meme</button>
+        </ul>
+      </form>
+    </div>
+    <div class="meme-block" id="memeBlock">
+      
+      <p class="text_top" style="color": {{ selected_color }}; top: {{ textTop_y }}px;">
+        {{textTop}}
+      </p>
+
+      <img class="meme" src="{{ url_for('serve_images', path=selected_image) }}" alt="{{ selected_image }}">
+
+      <p class="text_bottom" style="color": {{ selected_color }}; bottom: {{ textBottom_y }}px;">
+        {{textBottom}}
+      </p>
+    </div>
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
+
