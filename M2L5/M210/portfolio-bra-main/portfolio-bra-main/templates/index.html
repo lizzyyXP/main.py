@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    <title>Portfólio</title>
+
+  </head>
+
+  <body>
+
+    <header class="header">
+
+      <nav class="header__nav main-nav">
+
+        <ul class="main-nav__list main-list">
+
+          <li class="main-list__item list-item">
+
+            <a class="list-item__link" href="#home">INÍCIO</a>
+
+          </li>
+
+          <li class="main-list__item list-item">
+
+            <a class="list-item__link" href="#about">SOBRE</a>
+
+          </li>
+
+          <li class="main-list__item list-item">
+
+            <a class="list-item__link" href="#skills">MINHAS HABILIDADES</a>
+
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </header>
+
+    <main class="main">
+
+      <!-- Seção inicial -->
+
+      <section class="main__home home" id="home">
+
+        <h1 class="home__title">LIZZY</h1>
+
+        <p class="home__subtitle">
+          DESENVOLVEDORA WEB, PROGRAMADORA PYTHON
+        </p>
+
+      </section>
+
+      <!-- Seção sobre mim -->
+
+      <section class="main__about about" id="about">
+
+        <h2 class="about__title">SOBRE MIM</h2>
+
+        <div class="about__info info-block">
+
+          <p class="info-block__text">
+            oioiiee! eu sou a lizzyy, gosto de programação e estou aprendendo cada vez mais sobre python. gosto principalmente da biblioteca python, pois pode ser usada para criar vários tipos de projetos (eu particularmente amo). meus principais passatempos são jogar, ler e ouvir música. uma curiosidade é que sei um pouquinho de inglês e francês e estou aprendendo italiano. ✧
+          </p>
+
+          <img
+            class="info-block__img"
+            src="../static/img/profile.png"
+            alt="foto minha"
+            width="250"
+            height="250"
+          />
+
+        </div>
+
+      </section>
+
+      <!-- Seção de habilidades -->
+
+      <section class="main__skills skills" id="skills">
+
+        <h2 class="skills__title">MINHAS HABILIDADES</h2>
+
+        <form action="/" method="POST">
+
+          <ul class="skills__list skills-list">
+
+            <li class="skills-list__skill skill">
+
+              <img
+                class="skill__img"
+                src="../static/img/python.png"
+                alt="python"
+                width="150"
+                height="150"
+              />
+
+              <span class="skill__info">
+                Programação em Python
+              </span>
+
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_python"
+                value="VER PROJETO"
+              />
+
+            </li>
+
+            <li class="skills-list__skill skill">
+
+              <img
+                class="skill__img"
+                src="../static/img/discord.png"
+                alt="discord"
+                width="150"
+                height="150"
+              />
+
+              <span class="skill__info">
+                Criação de bots para Discord
+              </span>
+
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_discord"
+                value="VER PROJETO"
+              />
+
+            </li>
+
+            <li class="skills-list__skill skill">
+
+              <img
+                class="skill__img"
+                src="../static/img/html.png"
+                alt="html"
+                width="150"
+                height="150"
+              />
+
+              <span class="skill__info">
+                Desenvolvimento Web
+              </span>
+
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_html"
+                value="VER PROJETO"
+              />
+
+            </li>
+
+            <li class="skills-list__skill skill">
+
+              <img
+                class="skill__img"
+                src="../static/img/db.webp"
+                alt="SQL"
+                width="150"
+                height="150"
+              />
+
+              <span class="skill__info">
+                Banco de dados SQL
+              </span>
+
+              <input
+                class="skill__button"
+                type="submit"
+                name="button_db"
+                value="VER PROJETO"
+              />
+
+            </li>
+
+          </ul>
+
+        </form>
+
+        <!-- Projeto Python -->
+
+        {% if button_python %}
+
+        <div class="skills__project project" id="project">
+
+          <img
+            class="project__img"
+            src="../static/img/python-project.png"
+            alt="projeto python"
+            width="500"
+          />
+
+          <a
+            class="project__link"
+            href="https://github.com/lizzyyXP/main.py/tree/main/M2L6/meme-generator-bra-main"
+          >
+            Abrir no GitHub
+          </a>
+
+        </div>
+
+        {% endif %}
+
+        <!-- Projeto Discord -->
+
+        {% if button_discord %}
+
+        <div class="skills__project project" id="project">
+
+          <img
+            class="project__img"
+            src="../static/img/discord-project.png"
+            alt="projeto discord"
+            width="500"
+          />
+
+        </div>
+
+        {% endif %}
+
+        <!-- Projeto HTML -->
+
+        {% if button_html %}
+
+        <div class="skills__project project" id="project">
+
+          <img
+            class="project__img"
+            src="../static/img/html-project.png"
+            alt="projeto html"
+            width="500"
+          />
+
+          <a
+            class="project__link"
+            href="https://github.com/lizzyyXP/main.py/tree/main/M2L3"
+          >
+            Abrir no GitHub
+          </a>
+
+        </div>
+
+        {% endif %}
+
+        <!-- Projeto SQL -->
+
+        {% if button_db %}
+
+        <div class="skills__project project" id="project">
+
+          <img
+            class="project__img"
+            src="../static/img/db-project.png"
+            alt="projeto sql"
+            width="500"
+          />
+
+          <a
+            class="project__link"
+            href="https://github.com/lizzyyXP/main.py/tree/main/M2L5"
+          >
+            Abrir no GitHub
+          </a>
+
+        </div>
+
+        {% endif %}
+
+      </section>
+
+      <!-- Formulário de feedback -->
+
+      <section class="main__feedback feedback" id="feedback">
+
+        <h2 class="feedback__title">FEEDBACK</h2>
+
+        <form action="" method="POST" class="feedback__form form">
+
+          <label for="email">
+
+            <input
+              type="email"
+              class="form__input"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+
+          </label>
+
+          <label for="text">
+
+            <textarea
+              name="text"
+              class="form__input"
+              id="text"
+              cols="70"
+              rows="10"
+              required
+              placeholder="Comentário"
+            ></textarea>
+
+          </label>
+
+          <button class="form__button" type="submit">
+            ENVIAR
+          </button>
+
+        </form>
+
+      </section>
+
+    </main>
+
+    <!-- Rodapé para links de redes sociais -->
+
+    <footer></footer>
+
+  </body>
+
+</html>
